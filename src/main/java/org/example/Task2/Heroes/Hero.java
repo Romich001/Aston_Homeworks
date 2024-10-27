@@ -2,7 +2,7 @@ package org.example.Task2.Heroes;
 
 import org.example.Task2.Enemy.Enemy;
 
-public class Hero {
+public abstract class Hero {
     private final String NAME;
     private final int STRENGTH = 2;
 
@@ -14,9 +14,6 @@ public class Hero {
         return NAME;
     }
 
-    public void attackEnemy(Enemy enemy) {
-        System.out.println("Hero is attacking!");
-        enemy.takeDamage(STRENGTH);
-    }
+    abstract void attackEnemy(Enemy enemy);
 
 }
