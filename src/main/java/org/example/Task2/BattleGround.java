@@ -1,5 +1,6 @@
-package org.example.Task2.Enemy;
+package org.example.Task2;
 
+import org.example.Task2.Enemy.Enemy;
 import org.example.Task2.Heroes.Warrior;
 
 public class BattleGround {
