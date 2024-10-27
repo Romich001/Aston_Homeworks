@@ -1,6 +1,6 @@
 package org.example.Task2.Enemy;
 
-public class Enemy {
+public class Enemy implements Mortal {
     private int health;
 
     public Enemy(int health) {
@@ -17,5 +17,10 @@ public class Enemy {
 
     public void takeDamage(int damage) {
         health -= damage;
+    }
+
+    @Override
+    public boolean isAlive() {
+        return health > 0;
     }
 }
