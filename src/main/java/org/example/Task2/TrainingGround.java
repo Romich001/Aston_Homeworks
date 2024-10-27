@@ -7,9 +7,9 @@ import org.example.Task2.Heroes.Warrior;
 
 public class TrainingGround {
     public static void main(String[] args) {
-        var warrior = new Warrior("Gorka");
-        var mage = new Mage("Gendalf");
-        var archer = new Archer("Legolas");
+        var warrior = new Warrior("Gorka", 15);
+        var mage = new Mage("Gendalf", 5);
+        var archer = new Archer("Legolas", 10);
         var enemy = new Enemy(10);
         System.out.println(enemy.getHealth());
         warrior.attackEnemy(enemy);

@@ -6,8 +6,8 @@ public class Warrior extends Hero {
 
     private final int STRENGTH = 7;
 
-    public Warrior(String name) {
-        super(name);
+    public Warrior(String name, int health) {
+        super(name, health);
     }
 
     @Override
@@ -15,4 +15,5 @@ public class Warrior extends Hero {
         System.out.printf("Warrior %s is attacking!\n", getNAME());
         enemy.takeDamage(STRENGTH);
     }
+
 }

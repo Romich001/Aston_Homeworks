@@ -6,8 +6,8 @@ public class Mage extends Hero {
 
     private final int STRENGTH = 3;
 
-    public Mage(String name) {
-        super(name);
+    public Mage(String name, int health) {
+        super(name, health);
     }
 
     @Override
@@ -15,4 +15,5 @@ public class Mage extends Hero {
         System.out.printf("Mage %s is attacking!\n", getNAME());
         enemy.takeDamage(STRENGTH);
     }
+
 }

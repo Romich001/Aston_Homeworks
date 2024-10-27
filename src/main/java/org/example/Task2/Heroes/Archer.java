@@ -6,8 +6,10 @@ public class Archer extends Hero {
 
     private final int STRENGTH = 5;
 
-    public Archer(String name) {
-        super(name);
+    public Archer(String name, int health) {
+
+        super(name, health);
+
     }
 
     @Override
@@ -15,4 +17,5 @@ public class Archer extends Hero {
         System.out.printf("Archer %s is attacking!\n", getNAME());
         enemy.takeDamage(STRENGTH);
     }
+
 }
