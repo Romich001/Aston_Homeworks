@@ -1,0 +1,15 @@
+package org.example.Task2.Enemy;
+
+import org.example.Task2.Heroes.Warrior;
+
+public class BattleGround {
+    public static void main(String[] args) {
+        var gorka = new Warrior("Gorka");
+        var artes = new Enemy(15);
+        do {
+            gorka.attackEnemy(artes);
+
+        } while (artes.isAlive());
+
+    }
+}
