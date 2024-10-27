@@ -25,6 +25,7 @@ public abstract class Hero implements Mortal {
 
     public void takeDamage(int damage) {
         health -= damage;
+        System.out.printf("%s take damage %d\n", this.getClass().getSimpleName(), damage);
     }
 
     abstract void attackEnemy(Enemy enemy);
