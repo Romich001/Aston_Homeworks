@@ -1,7 +1,7 @@
 package org.example.Task2.Heroes;
 
 import org.example.Task2.Enemy.Enemy;
-import org.example.Task2.Enemy.Mortal;
+import org.example.Interfaces.Mortal;
 
 public abstract class Hero implements Mortal {
 

@@ -1,4 +1,4 @@
-package org.example.Task2.Enemy;
+package org.example.Interfaces;
 
 public interface Mortal {
 

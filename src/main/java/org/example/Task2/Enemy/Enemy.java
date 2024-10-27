@@ -1,5 +1,7 @@
 package org.example.Task2.Enemy;
 
+import org.example.Interfaces.Mortal;
+
 public class Enemy implements Mortal {
     private int health;
 
