@@ -4,6 +4,7 @@ import org.example.Task2.Enemy.Enemy;
 
 public class Warrior extends Hero {
 
+    //the strength of attack
     private final int STRENGTH = 7;
 
     public Warrior(String name, int health) {
@@ -17,3 +18,4 @@ public class Warrior extends Hero {
     }
 
 }
+

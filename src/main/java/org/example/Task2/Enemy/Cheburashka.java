@@ -2,19 +2,17 @@ package org.example.Task2.Enemy;
 
 import org.example.Task2.Heroes.Hero;
 
-public class Pinocchio extends Enemy {
+public class Cheburashka extends Enemy {
 
-    private final int DAMAGE = 5;
+    private final int DAMAGE = 3;
 
-    public Pinocchio(String name, int health) {
+    public Cheburashka(String name, int health) {
         super(name, health);
-
     }
 
     @Override
     public void attack(Hero hero) {
         System.out.printf("%s is attacking.\n", getName());
         hero.takeDamage(DAMAGE);
-
     }
 }
