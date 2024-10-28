@@ -5,6 +5,7 @@ import org.example.Task2.Enemy.Pinocchio;
 
 public class Mage extends Hero {
 
+    //the strength of attack
     private final int STRENGTH = 3;
 
     public Mage(String name, int health) {
@@ -23,6 +24,7 @@ public class Mage extends Hero {
 
     }
 
+    //special attack
     private void castFireball(Enemy enemy) {
         var damageForPinocchio = 15;       //damage for pinocchio
         var modifierForAttack = 3;

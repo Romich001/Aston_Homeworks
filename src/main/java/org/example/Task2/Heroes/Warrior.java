@@ -17,9 +17,12 @@ public class Warrior extends Hero {
     @Override
     public void attackEnemy(Enemy enemy) {
         var attackClaim = "Warrior %s is attacking!\n";
+        var healingClaim = "I am blessed.";
         var healthBonus = 2;
-        if (getHealth() <= STRENGTH) {          //if health less or equal STRENGTH, increase health with health bonus
+
+        if (getHealth() <= STRENGTH) {    //if health less or equal STRENGTH, increase health with health bonus
             setHealth(getHealth() + healthBonus);
+            System.out.println(healingClaim);
         }
         System.out.printf(attackClaim, getNAME());
         enemy.takeDamage(STRENGTH);

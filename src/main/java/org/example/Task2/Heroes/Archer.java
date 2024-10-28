@@ -33,6 +33,8 @@ public class Archer extends Hero {
 
     }
 
+
+    //special attack
     private void makeLuckyShot(Enemy enemy) {
         var damageModifier = 2;
         var attackClaim = "%s hit right in the eye!!!\n";
