@@ -11,9 +11,17 @@ public class Warrior extends Hero {
         super(name, health);
     }
 
+
+    //Warrior doesn't have a special attack, It doesn't matter who he chops down.
+    // He has a bonus for health.
     @Override
     public void attackEnemy(Enemy enemy) {
-        System.out.printf("Warrior %s is attacking!\n", getNAME());
+        var attackClaim = "Warrior %s is attacking!\n";
+        var healthBonus = 2;
+        if (getHealth() <= STRENGTH) {          //if health less or equal STRENGTH, increase health with health bonus
+            setHealth(getHealth() + healthBonus);
+        }
+        System.out.printf(attackClaim, getNAME());
         enemy.takeDamage(STRENGTH);
     }
 
