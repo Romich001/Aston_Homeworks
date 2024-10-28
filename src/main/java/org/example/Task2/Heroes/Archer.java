@@ -1,6 +1,7 @@
 package org.example.Task2.Heroes;
 
 import org.example.Task2.Enemy.Enemy;
+import org.example.Task2.Enemy.Pinocchio;
 
 public class Archer extends Hero {
 
@@ -14,8 +15,30 @@ public class Archer extends Hero {
 
     @Override
     public void attackEnemy(Enemy enemy) {
-        System.out.printf("Archer %s is attacking!\n", getNAME());
-        enemy.takeDamage(STRENGTH);
+        var attackClaim = "Archer %s is attacking!\n";
+        var attackPinocchioClaim = "My arrows are useless!!! It is just a walking log!!";
+        var damageForPinocchio = 0;
+        if (getHealth() <= STRENGTH) {    //if health less or equal STRENGTH then use  special attack
+            makeLuckyShot(enemy);
+        } else {
+            if (enemy instanceof Pinocchio) {     // if enemy is Pinocchio then arrows are useless.
+                enemy.takeDamage(damageForPinocchio);
+                System.out.println(attackPinocchioClaim);
+            } else {
+                System.out.printf(attackClaim, getNAME());  //usual attack
+                enemy.takeDamage(STRENGTH);
+            }
+
+        }
+
+    }
+
+    private void makeLuckyShot(Enemy enemy) {
+        var damageModifier = 2;
+        var attackClaim = "%s hit right in the eye!!!\n";
+        enemy.takeDamage(STRENGTH * damageModifier);
+        System.out.printf(attackClaim, getNAME());
+
     }
 
 }
