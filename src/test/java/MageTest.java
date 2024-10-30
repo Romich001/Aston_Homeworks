@@ -14,12 +14,8 @@ class MageTest {
     private Enemy enemy;
 
     @BeforeEach
-    void setMage() {
+    void setUp() {
         mage = new Mage("Mage", 4);
-    }
-
-    @BeforeEach
-    void setEnemy() {
         enemy = new Pinocchio("Enemy", 10);
     }
 
