@@ -14,6 +14,11 @@ public class Archer extends Hero {
     }
 
     @Override
+    public Hero copy() {
+        return new Archer(getNAME(), getHealth());
+    }
+
+    @Override
     public void attackEnemy(Enemy enemy) {
         var attackClaim = "Archer %s is attacking!\n";
         var attackPinocchioClaim = "My arrows are useless!!! It is just a walking log!!";

@@ -11,6 +11,11 @@ public class Warrior extends Hero {
         super(name, health);
     }
 
+    @Override
+    public Hero copy() {
+        return new Warrior(getNAME(), getHealth());
+    }
+
 
     //Warrior doesn't have a special attack, It doesn't matter who he chops down.
     // He has a bonus for health.

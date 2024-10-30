@@ -13,6 +13,8 @@ public abstract class Enemy implements Mortal {
         this.health = health;
     }
 
+    public abstract Enemy copy();
+
     public abstract void attack(Hero hero);
 
     public int getHealth() {

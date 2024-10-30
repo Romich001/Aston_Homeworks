@@ -4,7 +4,7 @@ import org.example.Task2.Heroes.Hero;
 
 public class Pinocchio extends Enemy {
 
-    private final int DAMAGE = 5;
+    private final int STRENGTH = 5;
 
     public Pinocchio(String name, int health) {
         super(name, health);
@@ -12,9 +12,15 @@ public class Pinocchio extends Enemy {
     }
 
     @Override
+    public Enemy copy() {
+        return new Pinocchio(getName(), getHealth());
+    }
+
+
+    @Override
     public void attack(Hero hero) {
         System.out.printf("%s is attacking.\n", getName());
-        hero.takeDamage(DAMAGE);
+        hero.takeDamage(STRENGTH);
 
     }
 }

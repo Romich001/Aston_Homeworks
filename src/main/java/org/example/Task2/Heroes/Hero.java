@@ -32,6 +32,8 @@ public abstract class Hero implements Mortal {
         System.out.printf("%s health is %d\n", this.getClass().getSimpleName(), health);
     }
 
+    public abstract Hero copy();
+
     public abstract void attackEnemy(Enemy enemy);
 
     public int getHealth() {

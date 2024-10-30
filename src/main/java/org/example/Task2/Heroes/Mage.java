@@ -13,6 +13,11 @@ public class Mage extends Hero {
     }
 
     @Override
+    public Hero copy() {
+        return new Mage(getNAME(), getHealth());
+    }
+
+    @Override
     public void attackEnemy(Enemy enemy) {
         var attackClaim = "Mage %s is attacking!\n";
         if (getHealth() <= STRENGTH) {      //if mage's health is less than it's STRENGTH than mage casts fireball.
