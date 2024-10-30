@@ -26,11 +26,12 @@ public class Archer extends Hero {
         if (getHealth() <= STRENGTH) {    //if health less or equal STRENGTH then use  special attack
             makeLuckyShot(enemy);
         } else {
+            System.out.printf(attackClaim, getNAME());
             if (enemy instanceof Pinocchio) {     // if enemy is Pinocchio then arrows are useless.
                 enemy.takeDamage(damageForPinocchio);
                 System.out.println(attackPinocchioClaim);
             } else {
-                System.out.printf(attackClaim, getNAME());  //usual attack
+                //usual attack
                 enemy.takeDamage(STRENGTH);
             }
 
