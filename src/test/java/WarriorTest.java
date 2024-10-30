@@ -5,12 +5,13 @@ import org.example.Task2.Heroes.Warrior;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
 
 class WarriorTest {
 
     Hero warrior;
     Enemy enemy;
+
     @BeforeEach
     void setUp() {
         enemy = new Cheburashka("Ushastik", 10);
