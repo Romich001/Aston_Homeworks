@@ -12,32 +12,46 @@ public class MyLinkedList<T> implements Iterable<T> {
         return size;
     }
 
+    //remove data by index and return value
     public T remove(int index) {
         validateIndex(index);//throw Exception if index out of bounds
-        if(index == 0) return removeFirst();    //checks if it needs to remove first element then calls removeFirst()
-        if (index == size - 1) return removeLast(); // checks if it needs to remove last elemment then calls removeLast
         var node = getNodeByIndex(index);       //get the desired element
-       //delete links to the desired node in its neighbors.
-        var prevNode = node.previous;           //change previous element's link to previous link from the node
-        var nextNode = node.next;               //change next element's link to prev
-        nextNode.previous = prevNode;
-        prevNode.next = nextNode;
-        return node.value;
-
+        return removeNode(node);
     }
 
+
+    //remove node
+    private T removeNode(Node<T> node) {
+        var prevNode = node.previous;           //change previous element's link to previous link from the node
+        var nextNode = node.next;           //change next element's link to prev
+        if (prevNode == null && nextNode != null) {    //case when node is a head and not a single element.
+            nextNode.previous = null;
+            head = nextNode;
+        } else if (nextNode == null && prevNode != null) {   //case when node is tail and not a single element
+            prevNode.next = null;
+            tail = prevNode;
+        } else if (nextNode == null) {  //case when node is only element
+            tail = null;
+            head = null;
+        } else {                        //case when node is in a middle of list
+            //rewrite links in next node and previous elements to each other
+            nextNode.previous = prevNode;
+            prevNode.next = nextNode;
+        }
+        size--;          //decrement size of list;
+        return node.value;
+    }
+
+    //    remove last element in the list and return its value
     public T removeLast() {
         var node = getNodeByIndex(size - 1);
-        node.previous.next = null;
-        tail = node.previous;
-        return node.value;
+        return removeNode(node);
     }
 
+    //    remove first element in the list and return its value
     public T removeFirst() {
         var node = getNodeByIndex(0);
-        node.next.previous = null;
-        head = node.next;
-        return node.value;
+        return removeNode(node);
     }
 
     //get element by index
@@ -47,7 +61,7 @@ public class MyLinkedList<T> implements Iterable<T> {
 
     }
 
-    //throw Exception if index out of bounds
+    //throw Exception if index is out of bounds
     private void validateIndex(int index) {
         if (index < 0 || index >= size) {
             throw new ArrayIndexOutOfBoundsException();
@@ -64,6 +78,7 @@ public class MyLinkedList<T> implements Iterable<T> {
         return currentNode;
     }
 
+    //    add element to the list in last position.
     public void add(T item) {
         var current = new Node<>(item);
         if (head == null) {      //initialize first item of MyLinkedList
@@ -85,7 +100,7 @@ public class MyLinkedList<T> implements Iterable<T> {
         if (head != null) {
             var current = head;
             while (true) {
-                str.append(current.value.toString());
+                str.append(current);
                 str.append(" ");
                 if (current.next == null) {
                     break;
