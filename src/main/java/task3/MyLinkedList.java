@@ -45,18 +45,21 @@ public class MyLinkedList<T> implements Iterable<T> {
     }
 
 
-    public void print() {
-
+    @Override
+    public String toString() {
+        StringBuilder str = new StringBuilder();
         if (head != null) {
             var current = head;
             while (true) {
-                System.out.println(current.value);
+                str.append(current.value.toString());
+                str.append(" ");
                 if (current.next == null) {
                     break;
                 }
                 current = current.next;
             }
         }
+        return "[" + str.toString().trim() + "]";
     }
 
     @Override
@@ -96,6 +99,11 @@ public class MyLinkedList<T> implements Iterable<T> {
         public void setPrevious(Node<T> previous) {
             this.previous = previous;
         }
+
+        @Override
+        public String toString() {
+            return value.toString();
+        }
     }
 
     private class MyIterator implements Iterator<T> {
@@ -111,5 +119,6 @@ public class MyLinkedList<T> implements Iterable<T> {
         public T next() {
             return get(pointer++);
         }
+
     }
 }
