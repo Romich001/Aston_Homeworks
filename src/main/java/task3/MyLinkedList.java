@@ -23,6 +23,20 @@ public class MyLinkedList<T> {
         size++;
     }
 
+    public void print() {
+
+        if (head != null) {
+            var current = head;
+            while (true) {
+                System.out.println(current.value);
+                if (current.next == null) {
+                    break;
+                }
+                current = current.next;
+            }
+        }
+    }
+
     private static class Node<T> {
         private T value;
         private Node<T> next;
