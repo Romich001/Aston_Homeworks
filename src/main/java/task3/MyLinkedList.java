@@ -12,12 +12,42 @@ public class MyLinkedList<T> implements Iterable<T> {
         return size;
     }
 
+    public T remove(int index) {
+        validateIndex(index);        //throw Exception if index out of bounds
+        var node = getNodeByIndex(index);
+        var prevNode = node.previous;
+        var nextNode = node.next;
+        nextNode.previous = prevNode;
+        prevNode.next = nextNode;
+        return node.value;
+
+    }
+
+    public T removeLast() {
+        var node = getNodeByIndex(size - 1);
+        node.previous.next = null;
+        tail = node.previous;
+        return node.value;
+    }
+
+    public T removeFirst() {
+        var node = getNodeByIndex(0);
+        node.next.previous = null;
+        head = node.next;
+        return node.value;
+    }
+
     public T get(int index) {
+        validateIndex(index);       //throw Exception if index out of bounds
+        return getNodeByIndex(index).value;
+
+    }
+
+    //throw Exception if index out of bounds
+    private void validateIndex(int index) {
         if (index < 0 || index >= size) {
             throw new ArrayIndexOutOfBoundsException();
         }
-        return getNodeByIndex(index).value;
-
     }
 
     private Node<T> getNodeByIndex(int index) {
