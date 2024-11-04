@@ -1,6 +1,8 @@
 package task3;
 
-public class MyLinkedList<T>{
+import java.util.Iterator;
+
+public class MyLinkedList<T> implements Iterable<T> {
 
     private Node<T> head;
     private Node<T> tail;
@@ -8,6 +10,24 @@ public class MyLinkedList<T>{
 
     public int length() {
         return size;
+    }
+
+    public T get(int index) {
+        if (index < 0 || index >= size) {
+            throw new ArrayIndexOutOfBoundsException();
+        }
+        return getNodeByIndex(index).value;
+
+    }
+
+    private Node<T> getNodeByIndex(int index) {
+        var currentNode = head;
+        var currentIndex = 0;
+        while (currentIndex != index) {
+            currentNode = head.next;
+            currentIndex++;
+        }
+        return currentNode;
     }
 
     public void add(T item) {
@@ -37,6 +57,11 @@ public class MyLinkedList<T>{
                 current = current.next;
             }
         }
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+        return new MyIterator();
     }
 
     private static class Node<T> {
@@ -70,6 +95,21 @@ public class MyLinkedList<T>{
 
         public void setPrevious(Node<T> previous) {
             this.previous = previous;
+        }
+    }
+
+    private class MyIterator implements Iterator<T> {
+
+        Node<T> current = head;
+
+        @Override
+        public boolean hasNext() {
+            return current.next != null;
+        }
+
+        @Override
+        public T next() {
+            return null;
         }
     }
 }
