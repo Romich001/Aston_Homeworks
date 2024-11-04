@@ -13,10 +13,13 @@ public class MyLinkedList<T> implements Iterable<T> {
     }
 
     public T remove(int index) {
-        validateIndex(index);        //throw Exception if index out of bounds
-        var node = getNodeByIndex(index);
-        var prevNode = node.previous;
-        var nextNode = node.next;
+        validateIndex(index);//throw Exception if index out of bounds
+        if(index == 0) return removeFirst();    //checks if it needs to remove first element then calls removeFirst()
+        if (index == size - 1) return removeLast(); // checks if it needs to remove last elemment then calls removeLast
+        var node = getNodeByIndex(index);       //get the desired element
+       //delete links to the desired node in its neighbors.
+        var prevNode = node.previous;           //change previous element's link to previous link from the node
+        var nextNode = node.next;               //change next element's link to prev
         nextNode.previous = prevNode;
         prevNode.next = nextNode;
         return node.value;
@@ -37,6 +40,7 @@ public class MyLinkedList<T> implements Iterable<T> {
         return node.value;
     }
 
+    //get element by index
     public T get(int index) {
         validateIndex(index);       //throw Exception if index out of bounds
         return getNodeByIndex(index).value;
