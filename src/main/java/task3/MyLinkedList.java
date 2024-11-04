@@ -1,6 +1,6 @@
 package task3;
 
-public class MyLinkedList<T> {
+public class MyLinkedList<T>{
 
     private Node<T> head;
     private Node<T> tail;
@@ -15,13 +15,15 @@ public class MyLinkedList<T> {
         if (head == null) {      //initialize first item of MyLinkedList
             head = current;
             tail = current;
+            size++;                //increase count of Nodes
             return;
         }
-        current.setPrevious(tail);
-        tail.setNext(current);
-        tail = current;
-        size++;
+        current.setPrevious(tail);     //set previous to new element
+        tail.setNext(current);          //set next field to tail element, now the myLinkedList obj includes new element
+        tail = current;                 //set new element as last
+        size++;                         // increase count of Nodes
     }
+
 
     public void print() {
 
