@@ -24,7 +24,7 @@ public class MyLinkedList<T> implements Iterable<T> {
         var currentNode = head;
         var currentIndex = 0;
         while (currentIndex != index) {
-            currentNode = head.next;
+            currentNode = currentNode.next;
             currentIndex++;
         }
         return currentNode;
@@ -100,16 +100,16 @@ public class MyLinkedList<T> implements Iterable<T> {
 
     private class MyIterator implements Iterator<T> {
 
-        Node<T> current = head;
+        private int pointer = 0;
 
         @Override
         public boolean hasNext() {
-            return current.next != null;
+            return getNodeByIndex(pointer) != null;
         }
 
         @Override
         public T next() {
-            return null;
+            return get(pointer++);
         }
     }
 }
