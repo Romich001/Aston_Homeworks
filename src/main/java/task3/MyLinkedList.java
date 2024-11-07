@@ -79,7 +79,9 @@ public class MyLinkedList<T> implements Iterable<T> {
         return currentNode;
     }
 
-    public void addAll(Collection<T> collection) {
+
+//    add all elements to MyLinkedList object.
+    public void addAll(Collection<? extends T> collection) {
         collection.forEach(this::add);
     }
 
