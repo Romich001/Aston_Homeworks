@@ -1,5 +1,6 @@
 package task3;
 
+import java.util.Collection;
 import java.util.Iterator;
 
 public class MyLinkedList<T> implements Iterable<T> {
@@ -76,6 +77,10 @@ public class MyLinkedList<T> implements Iterable<T> {
             currentIndex++;
         }
         return currentNode;
+    }
+
+    public void addAll(Collection<T> collection) {
+        collection.forEach(this::add);
     }
 
     //    add element to the list in last position.
