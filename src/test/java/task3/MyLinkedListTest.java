@@ -33,7 +33,15 @@ class MyLinkedListTest {
     }
 
     @Test
-    void addAll(){
+    void sort() {
+        list.addAll(List.of(3, 2, 1));
+        list.sort();
+        assertEquals("[1 2 3]", list.toString());
+
+    }
+
+    @Test
+    void addAll() {
         list.addAll(List.of(1, 2, 3));
         assertEquals(3, list.length());
         assertEquals("[1 2 3]", list.toString());
