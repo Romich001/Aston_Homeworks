@@ -8,6 +8,7 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T> {
     private Node<T> head;
     private Node<T> tail;
     private int size = 0;
+    private boolean isSort = false;
 
     public int length() {
         return size;
@@ -22,7 +23,7 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T> {
 
 
     public void sort() {
-        if (size == 0 || size == 1) return;  //checks if list is empty or have one element
+        if (size == 0 || size == 1 || isSort) return;  //checks if list is empty or have one element
         for (int j = 1; j < size; j++) {
             var current = head;
             var next = head.next;
@@ -36,6 +37,7 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T> {
                 next = current.next;
             }
         }
+        isSort = true;  //set isSort value to true
 
 
     }
@@ -106,6 +108,7 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T> {
 
     //    add element to the list in last position.
     public void add(T item) {
+        isSort = false;       //list is not sorted after adding new element
         var current = new Node<>(item);
         if (head == null) {      //initialize first item of MyLinkedList
             head = current;
