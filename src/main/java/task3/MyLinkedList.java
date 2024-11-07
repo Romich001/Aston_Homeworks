@@ -1,6 +1,7 @@
 package task3;
 
 import java.util.Collection;
+import java.util.Comparator;
 import java.util.Iterator;
 
 public class MyLinkedList<T extends Comparable<T>> implements Iterable<T> {
@@ -22,13 +23,14 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T> {
     }
 
 
-    public void sort() {
+    //    bubble sort with comparator
+    public void sort(Comparator<T> comparator) {
         if (size == 0 || size == 1 || isSort) return;  //checks if list is empty or have one element
         for (int j = 1; j < size; j++) {
             var current = head;
             var next = head.next;
             for (int i = 0; i < size - j; i++) {
-                if (current.value.compareTo(next.value) > 0) {
+                if (comparator.compare(current.value, next.value) > 0) {
                     var temp = current.value;
                     current.value = next.value;
                     next.value = temp;
@@ -37,9 +39,14 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T> {
                 next = current.next;
             }
         }
-        isSort = true;  //set isSort value to true
+        isSort = true;    //set isSort value to true
 
+    }
 
+    //    sort in natural oder
+    public void sort() {
+        Comparator<T> comparator = Comparator.naturalOrder();
+        sort(comparator);
     }
 
     //remove node
