@@ -11,6 +11,13 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T> {
     private int size = 0;
     private boolean isSort = false;
 
+    public MyLinkedList() {
+    }
+
+    public MyLinkedList(Collection<? extends T> collection) {
+        this.addAll(collection);
+    }
+
     public int length() {
         return size;
     }
@@ -193,16 +200,18 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T> {
 
     private class MyIterator implements Iterator<T> {
 
-        private int pointer = 0;
+        private Node<T> node = head;
 
         @Override
         public boolean hasNext() {
-            return getNodeByIndex(pointer) != null;
+            return node != null;
         }
 
         @Override
         public T next() {
-            return get(pointer++);
+            T value = node.value;
+            node = node.next;
+            return value;
         }
 
     }
