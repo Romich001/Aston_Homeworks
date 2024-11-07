@@ -3,7 +3,7 @@ package task3;
 import java.util.Collection;
 import java.util.Iterator;
 
-public class MyLinkedList<T> implements Iterable<T> {
+public class MyLinkedList<T extends Comparable<T>> implements Iterable<T> {
 
     private Node<T> head;
     private Node<T> tail;
@@ -20,6 +20,25 @@ public class MyLinkedList<T> implements Iterable<T> {
         return removeNode(node);
     }
 
+
+    public void sort() {
+        if (size == 0 || size == 1) return;  //checks if list is empty or have one element
+        for (int j = 1; j < size; j++) {
+            var current = head;
+            var next = head.next;
+            for (int i = 0; i < size - j; i++) {
+                if (current.value.compareTo(next.value) > 0) {
+                    var temp = current.value;
+                    current.value = next.value;
+                    next.value = temp;
+                }
+                current = next;
+                next = current.next;
+            }
+        }
+
+
+    }
 
     //remove node
     private T removeNode(Node<T> node) {
@@ -80,7 +99,7 @@ public class MyLinkedList<T> implements Iterable<T> {
     }
 
 
-//    add all elements to MyLinkedList object.
+    //    add all elements to MyLinkedList object.
     public void addAll(Collection<? extends T> collection) {
         collection.forEach(this::add);
     }
