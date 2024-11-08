@@ -10,7 +10,6 @@ public class MyCollectionSorter {
     // <E extends Comparable<? super E>> используя super возможно использовать родителькую реализацию Comparable
     public static <E extends Comparable<? super E>> List<E> sort(Collection<E> collection, Comparator<? super E> comparator) {
         var arr = new ArrayList<>(collection);
-        System.out.println(arr);
         for (int j = 0; j < arr.size(); j++) {
             for (int i = 0; i < collection.size() - 1 - j; i++) {
                 var current = arr.get(i);
