@@ -31,7 +31,7 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T> {
 
 
     //    bubble sort with comparator
-    public void sort(Comparator<T> comparator) {
+    public void sort(Comparator<? super T> comparator) {
         if (size == 0 || size == 1 || isSort) return;  //checks if list is empty or have one element
         for (int j = 1; j < size; j++) {
             var current = head;
@@ -52,8 +52,7 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T> {
 
     //    sort in natural oder
     public void sort() {
-        Comparator<T> comparator = Comparator.naturalOrder();
-        sort(comparator);
+        sort(Comparator.naturalOrder());
     }
 
     //remove node
