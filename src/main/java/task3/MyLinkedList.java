@@ -129,8 +129,8 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T> {
             size++;                //increase count of Nodes
             return;
         }
-        current.setPrevious(tail);     //set previous to new element
-        tail.setNext(current);          //set next field to tail element, now the myLinkedList obj includes new element
+        current.previous = tail;     //set previous to new element
+        tail.next = current;          //set next field to tail element, now the myLinkedList obj includes new element
         tail = current;                 //set new element as last
         size++;                         // increase count of Nodes
     }
@@ -165,30 +165,6 @@ public class MyLinkedList<T extends Comparable<T>> implements Iterable<T> {
 
         public Node(T value) {
             this.value = value;
-        }
-
-        public T getValue() {
-            return value;
-        }
-
-        public void setValue(T value) {
-            this.value = value;
-        }
-
-        public Node<T> getNext() {
-            return next;
-        }
-
-        public void setNext(Node<T> next) {
-            this.next = next;
-        }
-
-        public Node<T> getPrevious() {
-            return previous;
-        }
-
-        public void setPrevious(Node<T> previous) {
-            this.previous = previous;
         }
 
         @Override
